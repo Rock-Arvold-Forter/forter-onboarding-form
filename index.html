@@ -1457,11 +1457,11 @@
     // Replace YOUR_WEBHOOK_URL with your Workato webhook trigger URL.
     // The flat JSON payload maps 1:1 to your Workato Data Table columns.
     //
-    // fetch('YOUR_WEBHOOK_URL', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(payload)
-    // }).then(() => showPage(3)).catch(console.error);
+fetch('https://www.workato.com/webhooks/rest/YOUR-TOKEN/onboarding_form_submission', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload)
+}).then(() => showPage(3)).catch(console.error);
     //
     // ── Payload field reference ──────────────────────────────────────────
     // SYSTEM (hidden — auto-populated):
@@ -1482,7 +1482,6 @@
     //   poFirstName, poLastName, poEmail
     // ────────────────────────────────────────────────────────────────────
 
-    showPage(3); // Remove this line once webhook is wired up
   });
 
   /* ── Hidden System Field Initialization ─── */
