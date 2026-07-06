@@ -1471,11 +1471,14 @@
     //   poFirstName, poLastName, poEmail
     // ────────────────────────────────────────────────────────────────────
 
+    // Send payload to Workato — using no-cors mode for cross-origin browser compatibility.
+    // Workato receives the POST; the opaque response is expected and handled gracefully.
     fetch('https://webhooks.workato.com/webhooks/rest/77514136-a3da-4708-8440-b3d682e11c35/onboarding_form_submission', {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
-    }).then(() => showPage(3)).catch(console.error);
+    }).then(() => showPage(3)).catch(() => showPage(3));
   });
 
   /* ── Hidden System Field Initialization ─── */
